@@ -1,29 +1,27 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const API_KEY = '274449d3-cad7-4a56-b8b6-b8db3dfe510c:fx'; // ここにAPIキーを設定します
+    const translateButton = document.getElementById('translateButton');
 
-    const data = {
-        text: 'Hello, world!',
-        target_lang: 'JA'
-    };
+    translateButton.addEventListener('click', () => {
+        const text = document.getElementById('text').value;
+        const targetLang = document.getElementById('language').value;
 
-    fetch('https://api-free.deepl.com/v2/translate', {
-    method: 'POST',
-    headers: {
-        'Authorization': `DeepL-Auth-Key ${API_KEY}`, // APIキーをヘッダーに設定
-        'Content-Type': 'application/x-www-form-urlencoded'
-    },
-    body: new URLSearchParams(data)
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Failed to translate text');
-        }
-        return response.json();
-    })
-    .then(result => {
-    console.log(result.translations[0].text); // 翻訳されたテキストを出力
-    })
-    .catch(error => {
-        console.error('Error:', error);
+        const API_KEY = '274449d3-cad7-4a56-b8b6-b8db3dfe510c:fx'; // ここにAPIキーを設定します
+
+        // URLを組み立てる
+        const url = `https://api-free.deepl.com/v2/translate?auth_key=${API_KEY}&text=${encodeURIComponent(text)}&target_lang=${targetLang}`;
+
+        fetch(url)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Failed to translate text');
+            }
+            return response.json();
+        })
+        .then(result => {
+            document.getElementById('result').textContent = result.translations[0].text;
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
     });
 });
