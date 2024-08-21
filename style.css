@@ -33,6 +33,10 @@ label {
     font-size: 16px;
 }
 
+.rightarrow {
+  font-size: 32px;
+}
+
 .textbox-group {
     display: flex;
     justify-content: space-between;
