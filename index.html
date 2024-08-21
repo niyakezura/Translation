@@ -9,8 +9,18 @@
 </head>
 <body>
     <div class="translate">
+        <h1>DeepL翻訳</h1>
         <label>言語設定：
-            <select name="prob-list" id="prob-select">
+            <select name="prob-list1" id="prob-select2">
+                <option value="EN">English</option>
+                <option value="JA">Japan</option>
+                <option value="CH">Chinese</option>
+                <option value="FR">French</option>
+                <option value="DE">German</option>
+    
+            </select>
+            <label class="rightarrow">→</label>
+            <select name="prob-list2" id="prob-select2">
                 <option value="EN">English</option>
                 <option value="JA">Japan</option>
                 <option value="CH">Chinese</option>
@@ -19,15 +29,17 @@
     
             </select>
         </label> 
-    <textarea  class="input_text" id="trans_text"rows="5" cols="33">
-    </textarea>
-  <label>→</label>
-    <textarea  class="output_text" id="trans_outtext"rows="5" cols="33">
-    </textarea>
+        <div class="textbox-group">
+            <textarea class="input_text" id="trans_text" rows="5"></textarea>
+            <label class="rightarrow">→</label>
+            <textarea class="output_text" id="trans_outtext" rows="5"></textarea>
+        </div>
+        <button class="trans_button" id="trans_button">
+            翻訳
+        </button>
     </div>
 
-    <button class="trans_button" id="trans_button">
-    </button>
+   
 
     <script src="script.js"></script>
 </body>
