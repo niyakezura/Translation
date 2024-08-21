@@ -1,10 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const translateButton = document.getElementById('trans_button'); // ボタンのIDを修正
+    const translateButton = document.getElementById('trans_button');
 
     translateButton.addEventListener('click', () => {
-        const text = document.getElementById('trans_text').value; // 入力テキストのIDを修正
-        const sourceLang = document.getElementById('prob-select2').value; // ソース言語のIDを修正
-        const targetLang = document.getElementById('prob-select2').value; // ターゲット言語のIDを修正
+        const text = document.getElementById('trans_text').value;
 
         // 言語設定の要素からの取得方法を調整
         const languageSelects = document.querySelectorAll('select[name="prob-list1"], select[name="prob-list2"]');
