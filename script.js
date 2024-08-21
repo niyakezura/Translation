@@ -3,10 +3,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     translateButton.addEventListener('click', () => {
         const text = document.getElementById('text').value;
-        const targetLang = document.getElementById('language').value;
+        const sourceLang = document.getElementById('sourceLang').value;
+        const targetLang = document.getElementById('targetLang').value;
 
         const API_KEY = '274449d3-cad7-4a56-b8b6-b8db3dfe510c:fx';
-        const url = `https://api-free.deepl.com/v2/translate?auth_key=${API_KEY}&text=${encodeURIComponent(text)}&target_lang=${targetLang}`;
+        const url = `https://api-free.deepl.com/v2/translate?auth_key=${API_KEY}&text=${encodeURIComponent(text)}&source_lang=${sourceLang}&target_lang=${targetLang}`;
 
         fetch(url)
         .then(response => {
