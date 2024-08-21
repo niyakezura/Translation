@@ -1,11 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
     const translateButton = document.getElementById('trans_button');
-    const text = document.getElementById('trans_text').value;
-    const sourceLang = document.getElementById('sourceLang').value;
-    const targetLang = document.getElementById('targetLang').value;
-    const reverseButton = document.getElementById('reverseLang');
+    let text = document.getElementById('trans_text').value; // 翻訳するテキストを取得
+    let sourceLang = document.getElementById('sourceLang').value; // 現在の入力言語を取得
+    let targetLang = document.getElementById('targetLang').value; // 現在の出力言語を取得
+    const reverseButton = document.getElementsByClassName('reverseButton')[0]; // reverseLangボタンの取得
 
     translateButton.addEventListener('click', () => {
+        text = document.getElementById('trans_text').value; // 翻訳するテキストを取得
+        sourceLang = document.getElementById('sourceLang').value; // 現在の入力言語を取得
+        targetLang = document.getElementById('targetLang').value; // 現在の出力言語を取得
+
         const API_KEY = '274449d3-cad7-4a56-b8b6-b8db3dfe510c:fx';
         const url = `https://api-free.deepl.com/v2/translate?auth_key=${API_KEY}&text=${encodeURIComponent(text)}&source_lang=${sourceLang}&target_lang=${targetLang}`;
 
@@ -25,6 +29,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     reverseButton.addEventListener('click', () => {
+        sourceLang = document.getElementById('sourceLang').value;
+        targetLang = document.getElementById('targetLang').value;
+
         document.getElementById('sourceLang').value = targetLang;
         document.getElementById('targetLang').value = sourceLang;
     });
