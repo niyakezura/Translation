@@ -27,6 +27,12 @@ h1 {
     width: 100%;
 }
 
+.reverseButton{
+    vertical-align: bottom;
+  background: transparent;
+  border: none;
+
+}
 label {
     vertical-align: middle; 
     margin: 10px 0;
